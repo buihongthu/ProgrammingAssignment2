@@ -27,7 +27,7 @@ makeCacheMatrix <- function(ma = matrix()) {
 ## by first looking for the cache of the inverse matrix,
 ## if the cache is null then compute the inverse matrix, cache and return it
 
-cacheSolve <- function(x) {
+cacheSolve <- function(x,...) {
    
    inv <- x$getinverse()
    if(!is.null(inv)) {
@@ -36,7 +36,7 @@ cacheSolve <- function(x) {
    }
    
    ma <- x$get()
-   inv <- solve(ma)
+   inv <- solve(ma,...)
    x$setinverse(inv)
    inv
       
